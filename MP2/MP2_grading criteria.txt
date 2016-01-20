@@ -1,0 +1,20 @@
+Grading (MP2)
+
+Basic concepts (30) 
+  A clear idea on what to do (15)
+  Good understanding of the techniques (15)
+
+Report (40)
+  clarity (10)
+  algorithm description (15)
+  results analysis (15)
+
+
+Results (30)
+  
+  matlab code (10) 
+  Test cases (5 each)
+    gum.bmp
+    palm.bmp
+    try different structure elements
+    obtain clear boundary 
