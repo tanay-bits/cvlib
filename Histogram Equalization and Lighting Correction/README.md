@@ -36,6 +36,7 @@ Results
 
 ####Lighting Corrected Images:
 *Note* - Lighting correction was applied to the histogram equalized image
+
 ![linear](https://raw.githubusercontent.com/tanay-bits/cvlib/master/MP3/lc_lin_histeq_moon.bmp)&nbsp; &nbsp; ![quadratic](https://raw.githubusercontent.com/tanay-bits/cvlib/master/MP3/lc_qd_histeq_moon.bmp)
 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using linear fit &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using quadratic fit
 
