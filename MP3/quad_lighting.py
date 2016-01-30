@@ -1,5 +1,8 @@
 import numpy as np 
 import cv2
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from mpl_toolkits.mplot3d import Axes3D
 
 img = cv2.imread('histeq_moon.bmp', 0)
 rows = img.shape[0]  #no. of rows in input image
@@ -41,3 +44,24 @@ out_mean_img = np.array([[out_mean]*cols]*rows)
 lc_img = (img - out) + out_mean_img
 
 cv2.imwrite('lc_qd_histeq_moon.bmp', lc_img)
+
+
+
+
+#OPTIONAL PLOTTING:
+
+# fig = plt.figure()
+# ax = fig.gca(projection='3d')
+
+# xs = np.arange(rows)
+# ys = np.arange(cols)
+# xs, ys = np.meshgrid(xs, ys)
+# surf = ax.plot_surface(xs, ys, out, rstride=1, cstride=1, cmap=cm.coolwarm,
+#                        linewidth=0, antialiased=False)
+
+# ax.set_zlim(0, 255)
+# ax.set_xlabel('row pixel')
+# ax.set_ylabel('col pixel')
+# ax.set_zlabel('gray level')
+
+# plt.show()
