@@ -45,6 +45,6 @@ Because of histogram equalization, the contrast of the input image is greatly en
 
 Both linear and quadratic lighting correction improved the histogram equalized image by transforming the uneven background lighting to more uniform lighting. Linear method corrected the dark lower left region of the input image, and quadratic method (providing a more accurate fit) went a step ahead and also corrected for the dark middle region in the image.
 
-![plane](https://raw.githubusercontent.com/tanay-bits/cvlib/master/MP3/planefit.png)
-![quad](https://raw.githubusercontent.com/tanay-bits/cvlib/master/MP3/quadfit.png)
+![plane](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/planefit.png)
+![quad](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/quadfit.png)
 *Linear (top) and quadratic (bottom) approximation of background illumination*
