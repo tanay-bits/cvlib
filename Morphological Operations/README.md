@@ -1,51 +1,40 @@
-Histogram Equalization and Lighting Correction of Images
+Morphological Operations on Binary Images
 =======================================
-
+Function usage notes are provided as comments on the source code. The images are considered binary between 0 and non­-0 pixel values in the mono­channel images obtained from the input images.
 Algorithm Descriptions
 ----------------------
-####Histogram Equalization:
+####Dilation:
++ Define the structural element (SE) as an array of size ​ n x n ​ , where ​ n ​ is provided by the user. Presently, all values of this array are set as 255 (=> square SE). 
++ Initiate the output image as a blank (zeros) image of same size as the input 
++ Iterate over all pixels of the input image 
++ At each nonzero pixel (=pixel of interest, or foreground), it is firstly checked if the ​ n x n neighboring pixels are all accessible (i.e., not outside the image’s size limits) 
++ If so, the output image array is sliced to extract the ​ n x n ​ window of pixels centered on the current pixel coordinates, and this slice is set equal to the SE 
++ If ​ n ​ is odd, there is no center pixel of the window, so the SE it is equated to is clipped by one row and one column (so that the dimensions of the window and SE match) 
++ If the user had provided the optional argument ​ noisefilter=1 , ​ the above three steps would only happen the pixel of interest is ascertained to not be a noise pixel + That is ascertained by scanning a small neighbor window around the pixel and counting the number of non­zero pixels. If this count is below a threshold, the current pixel is deemed as noise.
++ Finally, the output image is returned (and also saved in the working directory by default). 
 
-+  Input image is read as a grayscale 2D array and its dimensions are determined
-+  An empty array of the same size as input is initialized
-+  Taking the cumulative sum at each element of the normalized histogram array, the cumulative distribution function (cdf) is calculated
-+  A nested for loop is run to iterate over every pixel of the image, and the value at each pixel of the output is calculated as 255 times the cdf (which is b/w 0 and 1) at the corresponding input image pixel
-+  The output image is saved as a file and returned
+####Erosion:
+This function structurally follows the same algorithm as ​ Dilation , ​ but here the roles of background and foreground are inverted (since Erosion is the geometric dual of Dilation). Wherever 255 was used in ​ Dilation , ​ 0 is used in ​ Erosion (like the values in SE, criterion for pixel of interest).
 
+####Opening:
+​First apply ​ Erosion o ​ n the input image, then feed the eroded array to ​ Dilation. ​
 
-####Lighting Correction using Regression:
+####Closing:
+First apply ​ Dilation o ​ n the input image, then feed the dilated array to ​ Erosion.
 
-Reference - [Tutorial: Illumination Correction](https://clouard.users.greyc.fr/Pantheon/experiments/illumination-correction/index-en.html#retrospective)
-
-+  First two steps same as the above algorithm
-+  The background is estimated using regression
-+  For **linear** fitting method, the input features are row r, column c of input image (y_fit = b+w1*r+w2*c); for **quadratic** method, the input features are r, c, r<sup>2</sup>, c<sup>2</sup>, rc (since y_fit = b+w1.(r)+w2.(c)+w3.(r<sup>2</sup>)+w4.(c<sup>2</sup>)+w5.(rc), where y is the intensity level (0-255)
-+  Setting the gradient of the least squares cost function to 0, and solving the Ax=B type linear regression equation using pseudo-inverse (inverse also worked in the test image), we arrive at the optimal set of coefficients *w*
-+  Now the output image *out* is filled with y_fit values; this is the estimated background - the plane-fit (linear) or 2<sup>nd</sup>-order surface-fit (quadratic) image
-+  Additionally an image *out_mean_img* is created in which all pixels have the mean value of the out (background) image
-+  Finally, the lighting corrected image = input image - estimated background + mean(estimated background)
-+  The lighting corrected image is saved as a file and returned
-
+####Boundary:
+​First apply ​ Erosion ​ on the input image, then subtract the eroded array from the input array
 
 Results
 ---------
-####Input Image:
-![moon](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/moon.bmp)
 
-####Histogram Equalized Image:
-![histeq_moon](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/histeq_moon.bmp)
+![res1](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Morphological%20Operations/Selection_013.png)
+![res2](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Morphological%20Operations/Selection_014.png)
+![res3](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Morphological%20Operations/Selection_015.png)
 
-####Lighting Corrected Images:
-*Note* - Lighting correction was applied to the histogram equalized image
-
-![linear](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/lc_lin_histeq_moon.bmp)&nbsp; &nbsp; ![quadratic](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/lc_qd_histeq_moon.bmp)
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Using linear fit &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; Using quadratic fit
-
-Because of histogram equalization, the contrast of the input image is greatly enhanced, making the important features of the image visible. Whereas the entire input image had more or less the same intensity, the output has intensities spread out from very dark to very bright.
-
-Both linear and quadratic lighting correction improved the histogram equalized image by transforming the uneven background lighting to more uniform lighting. Linear method corrected the dark lower left region of the input image, and quadratic method (providing a more accurate fit) went a step ahead and also corrected for the dark middle region in the image.
-
-![plane](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/planefit.png)
-![quad](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/quadfit.png)
-
-*Linear (top) and quadratic (bottom) approximation of background illumination*
++ Since the SE’s chosen were quite small compared to the input image’s foreground, the ‘square­ness’ of the SE was not very apparent after any morphological operation ­ hence there was little incentive to go for more complicated shapes. 
++ Dilation produced best results with noise filtering enabled (since any noise would be magnified) and relatively larger SE sizes (6­8 for the given images), since they fill in the gaps smaller SE’s are not able to. 
++ However, ​ Erosion with similar SE sizes removed so many pixels that the image would lose characteristic features. Hence erosion was found to work best with SE of size 2. 
++ Opening performed well at limiting the output within the original bounds of the input while smoothing the contour and eliminating thin protrusions. Breaking of narrow isthmuses was most apparent (and potentially useful) on the ​ game.jpg i ​ mage. 
++ Closing gave best results (continuous filled region of interest) with relatively large SE sizes. It helped in smoothing the contour, fusing narrow breaks and long thin gulfs, filling in small holes. 
++ Boundary produced neat, continuous outer boundaries when used on closed images, but too fine internal boundaries on the original noisy images provided (could be useful, for instance to identify the finger boundaries on the ​ palm.bmp) ​
