@@ -47,4 +47,5 @@ Both linear and quadratic lighting correction improved the histogram equalized i
 
 ![plane](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/planefit.png)
 ![quad](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/quadfit.png)
+
 *Linear (top) and quadratic (bottom) approximation of background illumination*
