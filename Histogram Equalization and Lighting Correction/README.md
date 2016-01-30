@@ -29,15 +29,15 @@ Reference - [Tutorial: Illumination Correction](https://clouard.users.greyc.fr/P
 Results
 ---------
 ####Input Image:
-![moon](https://raw.githubusercontent.com/tanay-bits/cvlib/master/MP3/moon.bmp)
+![moon](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/moon.bmp)
 
 ####Histogram Equalized Image:
-![histeq_moon](https://raw.githubusercontent.com/tanay-bits/cvlib/master/MP3/histeq_moon.bmp)
+![histeq_moon](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/histeq_moon.bmp)
 
 ####Lighting Corrected Images:
 *Note* - Lighting correction was applied to the histogram equalized image
 
-![linear](https://raw.githubusercontent.com/tanay-bits/cvlib/master/MP3/lc_lin_histeq_moon.bmp)&nbsp; &nbsp; ![quadratic](https://raw.githubusercontent.com/tanay-bits/cvlib/master/MP3/lc_qd_histeq_moon.bmp)
+![linear](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/lc_lin_histeq_moon.bmp)&nbsp; &nbsp; ![quadratic](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Histogram%20Equalization%20and%20Lighting%20Correction/lc_qd_histeq_moon.bmp)
 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using linear fit &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using quadratic fit
 
 Because of histogram equalization, the contrast of the input image is greatly enhanced, making the important features of the image visible. Whereas the entire input image had more or less the same intensity, the output has intensities spread out from very dark to very bright.
