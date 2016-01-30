@@ -3,7 +3,7 @@ Histogram Equalization and Lighting Correction of Images
 
 Algorithm Descriptions
 ----------------------
-*Histogram Equalization:*
+####Histogram Equalization:
 
 +  Input image is read as a grayscale 2D array and its dimensions are determined
 +  An empty array of the same size as input is initialized
@@ -12,7 +12,8 @@ Algorithm Descriptions
 +  The output image is saved as a file and returned
 
 
-*Lighting Correction using Regression:*
+####Lighting Correction using Regression:
+
 Reference - [Tutorial: Illumination Correction](https://clouard.users.greyc.fr/Pantheon/experiments/illumination-correction/index-en.html#retrospective)
 
 +  First two steps same as the above algorithm
