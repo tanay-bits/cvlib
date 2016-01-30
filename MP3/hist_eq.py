@@ -23,6 +23,5 @@ def HistoEqualization(img_in):
 
 
 #MAIN SCRIPT:
-
 equalized_img = HistoEqualization('moon.bmp')
 
