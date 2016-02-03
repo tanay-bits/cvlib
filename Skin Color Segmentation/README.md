@@ -36,3 +36,19 @@ Results and Comments
 + Increasing the number of training images from 1 to 15 definitely improved the segmentation of test images, but 15 is still a low number to achieve impressive segmentation. If the output image is converted to binary and a morphological operation like dilation or closing is applied to it, the result can be used as a mask on the original input color image to segment out the skin regions in a cleaner fashion. 
 + For test images which have colors similar to the skin color in background (like ‘16.jpg’), much of the background is also segmented along with the human. This is one of the flaws of color-based image segmentation.
 + Although I could use the script myKmeans.m (which is my k=2 implementation of the k-means clustering algorithm), on multiple trials with it I realized the thresholds it suggested were quite similar to what I would set upon looking at the 2D histogram plot, and so both methods gave similar results. Since the latter is more practical and convenient (at least in this case) than the time and computation-expensive k-means clustering, I decided to go with that option.
+
+Some of the training images:
+
+![altxt](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Skin%20Color%20Segmentation/training%20images/pointer1.bmp)
+![altxt](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Skin%20Color%20Segmentation/training%20images/gun1.bmp)
+![altxt](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Skin%20Color%20Segmentation/training%20images/joy1.bmp)
+
+Some of the output images:
+
+![altxt](https://github.com/tanay-bits/cvlib/blob/master/Skin%20Color%20Segmentation/segmented%20images/seg1.jpg)
+
+![altxt](https://github.com/tanay-bits/cvlib/blob/master/Skin%20Color%20Segmentation/segmented%20images/seg5.jpg)
+
+![altxt](https://github.com/tanay-bits/cvlib/blob/master/Skin%20Color%20Segmentation/segmented%20images/seg6.jpg)
+
+
