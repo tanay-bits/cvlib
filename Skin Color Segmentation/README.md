@@ -29,8 +29,8 @@ Segmented image generator function
 
 Results and Comments
 -------------------------------
-![altxt](https://raw.githubusercontent.com/tanay-bits/ml/newyear/skin%20color%20segmentation/hist_avg_15.jpg)
-![altxt](https://raw.githubusercontent.com/tanay-bits/ml/newyear/skin%20color%20segmentation/hist_1.jpg)
+![altxt](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Skin%20Color%20Segmentation/hist_avg_15.jpg)
+![altxt](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Skin%20Color%20Segmentation/hist_1.jpg)
 
 + After trying R-G, H-S, and nR-nG histograms, the HSV color-space was chosen since it seemed to produce generally better results. 
 + Increasing the number of training images from 1 to 15 definitely improved the segmentation of test images, but 15 is still a low number to achieve impressive segmentation. If the output image is converted to binary and a morphological operation like dilation or closing is applied to it, the result can be used as a mask on the original input color image to segment out the skin regions in a cleaner fashion. 
