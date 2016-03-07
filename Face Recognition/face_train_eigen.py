@@ -3,7 +3,7 @@ import cv2
 import sys
 import os
 
-FREQ_DIV = 30   #frequency divider for capturing training images
+FREQ_DIV = 10   #frequency divider for capturing training images
 RESIZE_FACTOR = 4
 NUM_TRAINING = 20
 

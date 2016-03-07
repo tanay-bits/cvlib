@@ -59,7 +59,7 @@ class RecogEigenFaces:
             face = gray[y:y+h, x:x+w]
             face_resized = cv2.resize(face, (resized_width, resized_height))
             confidence = self.model.predict(face_resized)
-            if confidence[1]<1000:
+            if confidence[1]<5000:
                 person = self.names[confidence[0]]
                 cv2.rectangle(frame, (x,y), (x+w, y+h), (255, 0, 0), 3)
                 cv2.putText(frame, '%s - %.0f' % (person, confidence[1]), (x-10, y-10), cv2.FONT_HERSHEY_PLAIN,1,(0, 255, 0))
