@@ -3,9 +3,9 @@ import cv2
 import sys
 import os
 
-FREQ_DIV = 10   #frequency divider for capturing training images
+FREQ_DIV = 5   #frequency divider for capturing training images
 RESIZE_FACTOR = 4
-NUM_TRAINING = 20
+NUM_TRAINING = 100
 
 class TrainEigenFaces:
     def __init__(self):
@@ -104,4 +104,5 @@ if __name__ == '__main__':
     trainer = TrainEigenFaces()
     trainer.capture_training_images()
     trainer.eigen_train_data()
+    print "Type in next user to train, or press Recognize"
 
