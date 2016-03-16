@@ -1,8 +1,15 @@
 Real-Time Face Detection and Recognition with OpenCV (Python)
 ==============
 This is a small Python program which performs [face detection using Haar cascades](http://docs.opencv.org/3.1.0/d7/d8b/tutorial_py_face_detection.html#gsc.tab=0) based on the [Viola-Jones framework](https://en.wikipedia.org/wiki/Viola%E2%80%93Jones_object_detection_framework), as well as face recognition with a choice of two of the most popular algorithms for this purpose - EigenFaces and FisherFaces. For a detailed introduction to these techniques, refer to [this tutorial](http://docs.opencv.org/2.4/modules/contrib/doc/facerec/facerec_tutorial.html).
+
+[![demo](http://i.imgur.com/rXUSWd2.png)](https://www.youtube.com/watch?v=nvPzOo8tyUs "Click to watch demo!")
+
+
 Program Interface
 ----------------------
+
+![sec](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Face%20Recognition/misc/flow_chart.png)
+
 +  Save the above Python scripts and XML files in a directory and create a subdirectory within it named "face_data".
 +  Run the *gui_face.py* script to start up the program. Type in the user's name and hit *Train (FisherFaces)* or *Train (EigenFaces)*. Note that FisherFaces requires at least two users trained, for [LDA](https://en.wikipedia.org/wiki/Linear_discriminant_analysis) to work.
 
