@@ -5,8 +5,11 @@ Program Interface
 ----------------------
 +  Save the above Python scripts and XML files in a directory and create a subdirectory within it named "face_data".
 +  Run the *gui_face.py* script to start up the program. Type in the user's name and hit *Train (FisherFaces)* or *Train (EigenFaces)*. Note that FisherFaces requires at least two users trained, for [LDA](https://en.wikipedia.org/wiki/Linear_discriminant_analysis) to work.
+
 ![sec](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Face%20Recognition/misc/gui.png)
+
 +  A webcam feed is opened from which photos of the user's face are detected and captured (stored in a folder corresponding to the user within the "face_data" folder) at regular intervals. The number of images captured to make the user's training dataset is set in *face_train_fisher.py* and *face_train_eigen.py* as the value of global variable *NUM_TRAINING* (currently 100). For the algorithms to work robustly, it is advisable to capture photos of the face at several distances, with different expressions, and different background lighting conditions. If there is someone else near you, make sure that during the capturing process, you (the intended user for whom the training set is being created) are in closest to the camera, to ensure only your face is captured. Once training images are captured, hit 'q' on your keyboard to close the webcam feed.
+
 ![sec](https://raw.githubusercontent.com/tanay-bits/cvlib/master/Face%20Recognition/misc/Capture.PNG)
 
 +  Other users who wish to be recognized should take turns to enter their names in the GUI and use the desired training method, going through the same process as described above.
