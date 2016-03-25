@@ -1,4 +1,4 @@
-Histogram Equalization and Lighting Correction of Images
+Canny Edge Detector
 =======================================
 
 Algorithm Description
